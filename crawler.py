@@ -1,7 +1,7 @@
 """
-crawls w3schools.com's browser statistics tables and saves the result in a JSON file.
-by Hans Henrik Grønsleth 2015-02-25.
-license? do whatever you want..
+Crawls w3schools.com's browser statistics tables and saves the result in a JSON file.
+By Hans Henrik Grønsleth 2015-02-25.
+License? Do whatever you want..
 """
 
 from urllib.request import urlopen
@@ -14,7 +14,7 @@ response = urlopen('http://www.w3schools.com/browsers/browsers_stats.asp')
 html = response.read()
 
 # use BeautifulSoup to make it easier to access HTML elements
-soup = BeautifulSoup(html)
+soup = BeautifulSoup(html, 'html.parser')
 
 # create an ordered dictionary to store data in
 stats = OrderedDict()
@@ -39,6 +39,6 @@ for table in tables:
         stats[year][month][ths[i]] = td
 
 # dump to a json file
-out_file = open("browserStats.json", "w")
+out_file = open("data.json", "w")
 json.dump(stats, out_file, indent = 2)
 out_file.close()
