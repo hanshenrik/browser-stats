@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+#-*- coding: utf-8 -*-
+
 """
 Crawls w3schools.com's browser statistics tables and saves the result in a JSON file.
 By Hans Henrik Grønsleth 2015-02-25.
