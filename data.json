@@ -1,5 +1,26 @@
 {
   "2015": {
+    "November": {
+      "Chrome": "67.4",
+      "IE": "6.8",
+      "Firefox": "19.2",
+      "Safari": "3.9",
+      "Opera": "1.5"
+    },
+    "October": {
+      "Chrome": "66.5",
+      "IE": "6.9",
+      "Firefox": "20.0",
+      "Safari": "3.8",
+      "Opera": "1.4"
+    },
+    "September": {
+      "Chrome": "65.9",
+      "IE": "7.2",
+      "Firefox": "20.6",
+      "Safari": "3.6",
+      "Opera": "1.4"
+    },
     "August": {
       "Chrome": "64.0",
       "IE": "6.6",
