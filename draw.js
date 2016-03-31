@@ -8,23 +8,6 @@ var previousMonthContext = previousMonthCanvas.getContext("2d")
 previousMonthContext.fillStyle = '#1e1d1c'
 previousMonthContext.textAlign = "center"
 
-var lastYearCanvas = document.getElementById("last-year-canvas")
-var lastYearContext = lastYearCanvas.getContext("2d")
-lastYearContext.fillStyle = '#1e1d1c'
-lastYearContext.textAlign = "center"
-// draw title
-lastYearContext.font = "bold 16px sans-serif"
-lastYearContext.fillText(currentYear - 1, lastYearCanvas.width/2, 20)
-lastYearContext.font = "normal 11px sans-serif"
-
-// draw axis
-lastYearContext.beginPath()
-lastYearContext.moveTo(width - 10, 0)
-lastYearContext.lineTo(width - 10, lastYearCanvas.height)
-lastYearContext.moveTo(width - 26, lastYearCanvas.height - 16)
-lastYearContext.lineTo(lastYearCanvas.width, lastYearCanvas.height - 16)
-lastYearContext.stroke()
-
 $.getJSON("data.json", function(stats) {
   var percentage
 
@@ -63,43 +46,79 @@ $.getJSON("data.json", function(stats) {
     break
   }
 
-  // fill lastYearCanvas with values
-  var currentY
-  currentX = width
-  for (month in stats[currentYear - 1]){
-    // reset currentY
-    currentY = undefined
-    for (browser in stats[currentYear - 1][month]) {
-      // set bar color based on browser
-      setFillStyle(lastYearContext, browser)
+  for (year in stats) {
+    var canvas = document.createElement('canvas');
+    canvas.setAttribute("id", "canvas-"+year);
+    canvas.setAttribute("width", "800");
+    canvas.setAttribute("height", "150");
+    var canvasContainer = document.getElementById("canvas-container");
+    canvasContainer.insertBefore(canvas, canvasContainer.childNodes[0]);
 
-      percentage = stats[currentYear - 1][month][browser]
+    var context = canvas.getContext("2d")
+    context.fillStyle = '#1e1d1c'
+    context.textAlign = "center"
+    // draw title
+    context.font = "bold 16px sans-serif"
+    context.fillText(year, canvas.width/2, 20)
+    context.font = "normal 11px sans-serif"
+
+    // draw axis
+    context.beginPath()
+    context.moveTo(width - 10, 0)
+    context.lineTo(width - 10, canvas.height)
+    context.moveTo(width - 26, canvas.height - 16)
+    context.lineTo(canvas.width, canvas.height - 16)
+    context.stroke()
+
+    // fill canvas with values
+    var currentY
+    currentX = width
+
+    for (month in stats[year]){
+      // reset currentY
+      currentY = undefined
+      for (browser in stats[year][month]) {
+        // set bar color based on browser
+        setFillStyle(context, browser)
+
+        percentage = stats[year][month][browser]
+        if (percentage === undefined || percentage === null || percentage === "") {
+          continue;
+        }
+
+        if (currentY === undefined) {
+          currentY = base - parseFloat(percentage)
+        }
+        else {
+          currentY = parseFloat(currentY) - parseFloat(percentage)
+        }
+
+        // create bar
+        context.fillRect(currentX, currentY, width, percentage)
+      }
       
-      if (currentY === undefined) currentY = base - parseFloat(percentage)
-      else currentY = parseFloat(currentY) - parseFloat(percentage)
+      // set color for the label text
+      context.fillStyle = '#1e1d1c'
 
-      // create bar
-      lastYearContext.fillRect(currentX, currentY, width, percentage)
+      // add month label below bar
+      context.textBaseline = "top"
+      context.fillText(month, currentX + width/2, base + 6)
+
+      // increase current x position (+10px between each bar)
+      currentX += width + 10
     }
-    
-    // set color for the label text
-    lastYearContext.fillStyle = '#1e1d1c'
-
-    // add month label below bar
-    lastYearContext.textBaseline = "top"
-    lastYearContext.fillText(month, currentX + width/2, base + 6)
-
-    // increase current x position (+10px between each bar)
-    currentX += width + 10
   }
 })
 
 function setFillStyle(context, browser) {
-  switch(browser) {
-    case 'Chrome':  context.fillStyle = 'limegreen'; break
-    case 'Firefox': context.fillStyle = 'darkorange'; break
-    case 'IE':      context.fillStyle = 'skyblue'; break
-    case 'Safari':  context.fillStyle = 'royalblue'; break
-    case 'Opera':   context.fillStyle = 'tomato'; break
+  switch (browser) {
+    case 'Chrome':    context.fillStyle = 'limegreen'; break
+    case 'Firefox':
+    case 'Mozilla':   context.fillStyle = 'darkorange'; break
+    case 'IE':        context.fillStyle = 'skyblue'; break
+    case 'Safari':    context.fillStyle = 'royalblue'; break
+    case 'Opera':     context.fillStyle = 'tomato'; break
+    case 'Netscape':  context.fillStyle = '#007C85'; break
+    case 'AOL':       context.fillStyle = '#005CA5'; break
   }
 }
