@@ -1,5 +1,33 @@
 {
   "2016": {
+    "September": {
+      "Chrome": "72.5",
+      "IE": "5.3",
+      "Firefox": "16.3",
+      "Safari": "3.5",
+      "Opera": "1.0"
+    },
+    "August": {
+      "Chrome": "72.4",
+      "IE": "5.2",
+      "Firefox": "16.8",
+      "Safari": "3.2",
+      "Opera": "1.1"
+    },
+    "July": {
+      "Chrome": "71.9",
+      "IE": "5.2",
+      "Firefox": "17.1",
+      "Safari": "3.2",
+      "Opera": "1.1"
+    },
+    "June": {
+      "Chrome": "71.7",
+      "IE": "5.6",
+      "Firefox": "17.0",
+      "Safari": "3.3",
+      "Opera": "1.1"
+    },
     "May": {
       "Chrome": "71.4",
       "IE": "5.7",
