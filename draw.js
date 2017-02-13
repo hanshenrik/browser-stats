@@ -74,7 +74,14 @@ $.getJSON("data.json", function(stats) {
     var currentY
     currentX = width
 
-    for (month in stats[year]){
+    for (month in stats[year]) {
+
+      // for years prior to 2008, we only have data from every second month, so we need to add some
+      // extra space for the missing months
+      if (year <= 2007) {
+        currentX += width + 10;
+      }
+
       // reset currentY
       currentY = undefined
       for (browser in stats[year][month]) {
@@ -112,13 +119,14 @@ $.getJSON("data.json", function(stats) {
 
 function setFillStyle(context, browser) {
   switch (browser) {
-    case 'Chrome':    context.fillStyle = 'limegreen'; break
-    case 'Firefox':
-    case 'Mozilla':   context.fillStyle = 'darkorange'; break
-    case 'IE':        context.fillStyle = 'skyblue'; break
-    case 'Safari':    context.fillStyle = 'royalblue'; break
-    case 'Opera':     context.fillStyle = 'tomato'; break
-    case 'Netscape':  context.fillStyle = '#007C85'; break
-    case 'AOL':       context.fillStyle = '#005CA5'; break
+    case 'Chrome':    context.fillStyle = '#58be5b'; break;
+    case 'Mozilla':   context.fillStyle = '#f7bf0a'; break;
+    case 'Firefox':   context.fillStyle = '#f48f09'; break;
+    case 'IE':
+    case 'IE/Edge':   context.fillStyle = '#3177bc'; break;
+    case 'Safari':    context.fillStyle = '#0bc2ed'; break;
+    case 'Opera':     context.fillStyle = '#ff4b4c'; break;
+    case 'Netscape':  context.fillStyle = '#007C85'; break;
+    case 'AOL':       context.fillStyle = '#000000'; break;
   }
 }
