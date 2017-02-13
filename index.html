@@ -1,50 +1,29 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <title>Browser Stats</title>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,200" />
-  <style>
-    body {
-      font-family: sans-serif;
-      font-weight: 200;
-      text-align: center;
-    }
-    h1 {
-      font-family: 'Titillium Web';
-      font-weight: 200;
-    }
-    footer {
-      padding: 1em;
-      font-size: 0.8em;
-    }
-    #legends {
-      position: fixed;
-      top: 0;
-      left: 0;
-      padding: 20px;
-      margin: 0;
-      list-style-type: none;
-      text-align: left;
-      background-color: rgba(255, 255, 255, 0.9);
-    }
-    .color-box {
-      height: 10px;
-      width: 10px;
-      display: inline-block;
-    }
-  </style>
+  <meta charset="utf-8" />
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,200" />
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Browser Stats</title>
 </head>
 <body>
-  <ul id="legends">
-    <li><div class="color-box" style="background-color: limegreen;"></div> Chrome</li>
-    <li><div class="color-box" style="background-color: darkorange;"></div> Firefox, Mozilla</li>
-    <li><div class="color-box" style="background-color: skyblue;"></div> IE</li>
-    <li><div class="color-box" style="background-color: royalblue;"></div> Safari</li>
-    <li><div class="color-box" style="background-color: tomato;"></div> Opera</li>
-    <li><div class="color-box" style="background-color: #007C85;"></div> Netscape</li>
-    <li><div class="color-box" style="background-color: #005CA5;"></div> AOL</li>
-  </ul>
+  <div id="legends">
+    <ul>
+      <li><div class="color-box" style="background-color: #58be5b;"></div> Chrome</li>
+      <li><div class="color-box" style="background-color: #f48f09;"></div> Firefox</li>
+      <li><div class="color-box" style="background-color: #f7bf0a;"></div> Mozilla</li>
+      <li><div class="color-box" style="background-color: #3177bc;"></div> IE/Edge</li>
+      <li><div class="color-box" style="background-color: #0bc2ed;"></div> Safari</li>
+      <li><div class="color-box" style="background-color: #ff4b4c;"></div> Opera</li>
+      <li><div class="color-box" style="background-color: #007C85;"></div> Netscape</li>
+      <li><div class="color-box" style="background-color: black;"></div> AOL</li>
+    </ul>
+  </div>
+
   <h1>Previous Month's Browser Stats</h1>
   <canvas id="prev-month-canvas" width="400" height="150"></canvas>
 
@@ -53,6 +32,6 @@
 
   <script src="draw.js"></script>
 
-  <footer>Data fetched from <a href="http://www.w3schools.com/browsers/browsers_stats.asp">w3schools.com</a></footer>
+  <footer>Data fetched from <a href="http://www.w3schools.com/browsers/browsers_stats.asp" title="w3schools">w3schools.com</a>. Crawling and visualisation by <a href="https://github.com/hanshenrik" title="hanshenrik">hanshenrik</a></footer>
 </body>
 </html>

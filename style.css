@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  font-weight: 200;
+  text-align: center;
+}
+h1 {
+  font-family: 'Titillium Web';
+  font-weight: 200;
+}
+footer {
+  padding: 1em;
+  font-size: 0.8em;
+}
+#legends {
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+#legends ul {
+  margin: 0;
+  padding: 20px;
+  list-style-type: none;
+}
+.color-box {
+  height: 10px;
+  width: 10px;
+  display: inline-block;
+}
