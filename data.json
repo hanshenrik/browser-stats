@@ -1,5 +1,12 @@
 {
   "2017": {
+    "February": {
+      "Chrome": "74.1",
+      "IE/Edge": "4.8",
+      "Firefox": "15.0",
+      "Safari": "3.6",
+      "Opera": "1.0"
+    },
     "January": {
       "Chrome": "73.7",
       "IE/Edge": "4.9",
