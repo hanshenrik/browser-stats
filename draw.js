@@ -72,14 +72,14 @@ $.getJSON("data.json", function(stats) {
 
     // fill canvas with values
     var currentY
-    currentX = width
+    currentX = width * 14 + 10
 
     for (month in stats[year]) {
 
       // for years prior to 2008, we only have data from every second month, so we need to add some
       // extra space for the missing months
       if (year <= 2007) {
-        currentX += width + 10;
+        currentX -= width + 10
       }
 
       // reset currentY
@@ -102,6 +102,14 @@ $.getJSON("data.json", function(stats) {
 
         // create bar
         context.fillRect(currentX, currentY, width, percentage)
+
+        // add percentale label for significant browsers
+        if (percentage > 22) {
+          console.log(base, currentY, percentage)
+          context.textBaseline = "middle"
+          context.fillStyle = '#444444'
+          context.fillText(browser, currentX + width/2, currentY + percentage/2)
+        }
       }
       
       // set color for the label text
@@ -111,8 +119,8 @@ $.getJSON("data.json", function(stats) {
       context.textBaseline = "top"
       context.fillText(month, currentX + width/2, base + 6)
 
-      // increase current x position (+10px between each bar)
-      currentX += width + 10
+      // decrease current x position (10px between each bar)
+      currentX -= width + 10
     }
   }
 })
