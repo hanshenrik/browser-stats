@@ -1,5 +1,47 @@
 {
   "2018": {
+    "August": {
+      "Chrome": "79.9",
+      "Edge/IE": "3.7",
+      "Firefox": "10.6",
+      "Safari": "3.0",
+      "Opera": "1.5"
+    },
+    "July": {
+      "Chrome": "80.1",
+      "Edge/IE": "3.5",
+      "Firefox": "10.8",
+      "Safari": "2.7",
+      "Opera": "1.5"
+    },
+    "June": {
+      "Chrome": "79.4",
+      "Edge/IE": "3.8",
+      "Firefox": "10.9",
+      "Safari": "3.0",
+      "Opera": "1.6"
+    },
+    "May": {
+      "Chrome": "79.0",
+      "Edge/IE": "3.9",
+      "Firefox": "10.9",
+      "Safari": "3.2",
+      "Opera": "1.6"
+    },
+    "April": {
+      "Chrome": "78.6",
+      "Edge/IE": "3.9",
+      "Firefox": "11.2",
+      "Safari": "3.3",
+      "Opera": "1.5"
+    },
+    "March": {
+      "Chrome": "78.1",
+      "Edge/IE": "4.0",
+      "Firefox": "11.5",
+      "Safari": "3.3",
+      "Opera": "1.6"
+    },
     "February": {
       "Chrome": "77.9",
       "Edge/IE": "4.1",
